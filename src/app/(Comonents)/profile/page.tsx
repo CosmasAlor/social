@@ -4,6 +4,7 @@ import { Button, Paper, TextField } from "@mui/material";
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import React {FormDataEvent} from "react";
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -17,7 +18,18 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
+
+const handleSubmit = (e: React.FormEvent<HTMLFormElement) = > {
+  e.preventDefault();
+
+  console.log('Form Submitted');
+  
+}
+
+
 export default function Profile() {
+
+
   function handleSubmit(e:Event) {
     console.log(e);
     
