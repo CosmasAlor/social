@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/Navbar";
-import Footer from "./_components/Footer";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 const inter = Inter({ subsets: ["latin"] });
 import { ThemeProvider } from '@mui/material/styles';
@@ -29,17 +28,13 @@ export default function RootLayout({ children,}: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={inter.className}>
-
           <Provider store={store}>
-                  <AppRouterCacheProvider>
-              <ThemeProvider theme={theme}>
-              <Navbar/>
-                 
-                 {children}
-                 
+              <AppRouterCacheProvider>
+                <ThemeProvider theme={theme}>
+                  <Navbar/>
+                    {children}
                   <Toaster/>
-                  <Footer/>
-              </ThemeProvider>
+                </ThemeProvider>
               </AppRouterCacheProvider>
           </Provider>
 
