@@ -10,7 +10,7 @@ export const getPost = createAsyncThunk('posts/getPost', async (id : string) => 
         }
     });
     console.log(data);
-    return data.post as Post[]; // Assuming 'posts' is an array of Post objects
+    return data.post as Post; // Assuming 'posts' is an array of Post objects
 });
 
 
@@ -41,7 +41,7 @@ const postsSlice = createSlice({
 
         builder.addCase(getPost.fulfilled, (state, action) => {
             state.isLoading = false;
-            state.post = action.payload;
+            state.post = action.payload; 
         });
     },
 });
